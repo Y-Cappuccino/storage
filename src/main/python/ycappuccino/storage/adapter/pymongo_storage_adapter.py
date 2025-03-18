@@ -30,28 +30,6 @@ class FakeMongoClient(MongoClient):
         pass
 
 
-class PyMongoAsyncStorageAdapter(IStorage):
-
-    def __init__(
-        self,
-        config: IConfiguration,
-        logger: IActivityLogger,
-        mongo_client_type: type[MongoClient] = AsyncMongoClient,
-    ) -> None:
-        super().__init__()
-        self._logger = logger
-        self._config = config
-        self.mongo_client = None
-        self._mongo_client_type = mongo_client_type
-        self._db = None
-        self._host = "localhost"
-        self._port = 27017
-        self._username = "client_pyscript_core"
-
-        self._password = "ycappuccino"
-        self._db_name = "ycappuccino"
-
-
 class PyMongoStorageAdapter(IStorage):
 
     def __init__(
